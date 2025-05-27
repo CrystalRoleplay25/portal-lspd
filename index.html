@@ -37,7 +37,7 @@
             border-bottom: 5px solid var(--police-red);
         }
         
-        .badge {
+        .portal-header .badge {
             width: 100px;
             height: 100px;
             margin: 0 auto 1rem;
@@ -49,7 +49,6 @@
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	    color: white !important;
         }
         
         .portal-subtitle {
@@ -111,18 +110,13 @@
             padding: 0 1rem;
         }
         
-        .welcome-section {
+        .welcome-section, .form-section {
             background-color: white;
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             border-left: 5px solid var(--police-blue);
-        }
-        
-        .welcome-section h2 {
-            color: var(--police-blue);
-            margin-bottom: 1rem;
         }
         
         .cards-container {
@@ -201,55 +195,24 @@
             margin-top: 3rem;
         }
         
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 1rem 0;
-        }
-        
         .footer-links a {
             color: white;
+            margin: 0 0.5rem;
             text-decoration: none;
+            font-weight: bold;
         }
         
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .portal-title {
-                font-size: 2rem;
-            }
-            
-            .portal-subtitle {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-            }
-            
-            .nav-button {
-                padding: 0.8rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-        }
- 
-        /* Nova regra de estilo adicionada */
+        /* Form Section */
         .form-section {
             animation: fadeIn 0.5s ease-in-out;
         }
- 
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
- 
-        /* Estilo para mensagem de sucesso */
+        
+        /* Success Message */
         .success-message {
             display: none;
             background-color: #4CAF50;
@@ -259,7 +222,8 @@
             margin-top: 1rem;
             text-align: center;
         }
-        /* Estilos da Proteção por Senha */
+        
+        /* Proteção por Senha */
         #password-protection {
             position: fixed;
             top: 0;
@@ -267,7 +231,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.9);
-            display: none;
+            display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -284,7 +248,7 @@
             width: 90%;
             border: 2px solid #d32f2f;
         }
-        .password-logo {
+        .password-container img.password-logo {
             width: 100px;
             height: 100px;
             margin-bottom: 20px;
@@ -325,15 +289,15 @@
             display: none;
             font-weight: bold;
         }
-
-        /* Estilos do Teste (ocultos inicialmente) */
+        
+        /* Teste (inicialmente oculto) */
         #test-content {
             display: none;
         }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            background: #e9ecef;
+        body { 
+            font-family: 'Arial', sans-serif; 
+            margin: 0; 
+            background: #e9ecef; 
             color: #2c3e50;
         }
         .official-header {
@@ -343,11 +307,20 @@
             text-align: center;
             border-bottom: 5px solid #d32f2f;
         }
-        .badge {
+        .official-header .badge {
             width: 100px;
             height: 100px;
             margin: 10px auto;
             object-fit: contain;
+        }
+        .official-header h1 {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        .official-header p {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
         }
         .container {
             max-width: 800px;
@@ -356,6 +329,16 @@
             padding: 30px;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
             position: relative;
+        }
+        .watermark {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 120px;
+            transform: rotate(-45deg);
+            top: 30%;
+            left: 20%;
+            color: #1a237e;
+            pointer-events: none;
         }
         h1 {
             font-size: 24px;
@@ -372,21 +355,16 @@
             padding: 8px;
             border-left: 4px solid #d32f2f;
         }
-        .watermark {
-            position: fixed;
-            opacity: 0.1;
-            font-size: 120px;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            top: 50%;
-            left: 50%;
-            color: #1a237e;
-            pointer-events: none;
-	    z-index: 0;	
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
         }
         ol.questions {
             counter-reset: question-counter;
             padding-left: 20px;
-            list-style: none;
+            list-style-type: none;
         }
         ol.questions > li {
             counter-increment: question-counter;
@@ -418,20 +396,6 @@
             color: #2c3e50;
             display: block;
             margin: 15px 0 10px 0;
-        }
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-            margin-top: 30px;
-            border-top: 1px solid #ddd;
-            padding-top: 15px;
-        }
-        .disclaimer {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
         }
         .true-false-options {
             display: flex;
@@ -484,7 +448,9 @@
             font-weight: bold;
         }
         input[type="text"],
-        input[type="email"] {
+        input[type="email"],
+        input[type="date"],
+        input[type="tel"] {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
@@ -494,6 +460,18 @@
     </style>
 </head>
 <body>
+    <!-- Proteção por Senha -->
+    <div id="password-protection" style="display: none;">
+        <div class="password-container">
+            <img src="https://iili.io/Hg0h0Ux.png" alt="Emblema DPCRP" class="password-logo">
+            <h1>ACESSO RESTRITO</h1>
+            <p>Insira a senha de acesso para continuar:</p>
+            <input type="password" id="password-input" placeholder="Digite a senha">
+            <button id="submit-password">ACESSAR TESTE</button>
+            <div id="error-message">Senha incorreta. Tente novamente.</div>
+        </div>
+    </div>
+
     <!-- Cabeçalho -->
     <header class="portal-header">
         <img src="https://iili.io/Hg0h0Ux.png" alt="Emblema DPCRP" class="badge">
@@ -509,7 +487,6 @@
             <a href="#processo" class="nav-button">PROCESSO</a>
             <a href="#formulario" class="nav-button">FORMULÁRIO</a>
             <a href="#teste" class="nav-button">TESTE</a>
-            <a href="#" id="access-button" class="nav-button">ACESSO</a>
             <a href="#contactos" class="nav-button">CONTACTOS</a>
         </div>
     </nav>
@@ -608,11 +585,11 @@
                         </div>
                     </div>
                     
-                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
-    <div>
-        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Email *</label>
-        <input type="tel" id="email" name="email" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;" required>
-    </div>
+                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                        <div>
+                            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Email *</label>
+                            <input type="email" id="email" name="email" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;" required>
+                        </div>
                         <div>
                             <label for="telefone" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Telefone *</label>
                             <input type="tel" id="telefone" name="telefone" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;" required>
@@ -621,28 +598,27 @@
                 </div>
                 
                 <div style="margin-top: 1rem;">
-    <label for="experiencia">Tem experiência anterior em forças policiais? *</label>
-    <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
-        <label style="display: flex; align-items: center; gap: 0.5rem;">
-            <input type="radio" name="experiencia" value="sim" required> Sim
-        </label>
-        <label style="display: flex; align-items: center; gap: 0.5rem;">
-            <input type="radio" name="experiencia" value="nao"> Não
-        </label>
-    </div>
-</div>           
-                    <div>
-                        <label for="motivacao" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Motivação para ingressar na LSPD *</label>
-                        <textarea id="motivacao" name="motivacao" rows="5" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;" required></textarea>
+                    <label for="experiencia">Tem experiência anterior em forças policiais? *</label>
+                    <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="radio" name="experiencia" value="sim" required> Sim
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="radio" name="experiencia" value="nao"> Não
+                        </label>
                     </div>
+                </div>           
+                <div>
+                    <label for="motivacao" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Motivação para ingressar na LSPD *</label>
+                    <textarea id="motivacao" name="motivacao" rows="5" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;" required></textarea>
                 </div>
                 
                 <div style="margin: 1.5rem 0;">
-    <label style="display: flex; align-items: center; gap: 0.5rem;">
-  <input type="checkbox" name="declaracao" required>
-  Declaro que as informações são verdadeiras.
-</label>
-</div>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" name="declaracao" required>
+                        Declaro que as informações são verdadeiras.
+                    </label>
+                </div>
                 
                 <button type="submit" class="btn" style="justify-self: start;">ENVIAR CANDIDATURA</button>
                 <div id="successMessage" class="success-message">Candidatura enviada com sucesso!</div>
@@ -662,6 +638,210 @@
             </ul>
             <div style="background-color: var(--light-gray); padding: 1.5rem; border-left: 4px solid var(--police-blue); margin: 1.5rem 0;">
                 <p><strong>Nota:</strong> O teste deve ser realizado em um único acesso e tem duração máxima de 60 minutos. Recomendamos que se prepare antecipadamente.</p>
+            </div>
+            <!-- Conteúdo do teste (inicialmente oculto) -->
+            <div id="test-content" style="display: none;">
+                <div class="official-header">
+                    <img src="https://iili.io/Hg0h0Ux.png" alt="Emblema LSPD" class="badge">
+                    <h1>Departamento de Polícia do Crystal Roleplay</h1>
+                    <p>Documento Oficial - Classificação: RESTRITO AO USO INTERNO</p>
+                </div>
+                <div class="container">
+                    <div class="watermark">DPCRP</div>
+                    <h1>TESTE DE ADMISSÃO PARA OFICIAIS</h1>
+                    <div class="disclaimer">
+                        <strong>AVISO:</strong> Este documento é propriedade exclusiva do DPCRP. Divulgação não autorizada sujeita a medidas disciplinares.
+                    </div>
+                    <form id="test-form">
+                        <div class="form-group">
+                            <label for="candidate-name" class="required">Nome do Candidato:</label>
+                            <input type="text" id="candidate-name" name="candidate-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="candidate-email" class="required">E-mail:</label>
+                            <input type="email" id="candidate-email" name="candidate-email" required>
+                        </div>
+                        
+                        <h2>Parte 1: Verdadeiro ou Falso (5 Perguntas)</h2>
+                        <p>Leia cada afirmação e indique se é <strong>Verdadeira (V)</strong> ou <strong>Falsa (F)</strong> de acordo com as normas.</p>
+                        <ol class="questions">
+                            <li>
+                                <span class="question">Um oficial de polícia pode entrar numa propriedade privada sem mandado se houver suspeita de atividade criminosa iminente e sem autorização do proprietário.</span>
+                                <div class="true-false-options">
+                                    <label>
+                                        <input type="radio" name="q1" value="V" required> Verdadeiro
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q1" value="F"> Falso
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="question">É permitido o uso de força letal em resposta a um civil desarmado que esteja a resistir à prisão, mas não representa uma ameaça imediata.</span>
+                                <div class="true-false-options">
+                                    <label>
+                                        <input type="radio" name="q2" value="V" required> Verdadeiro
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q2" value="F"> Falso
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="question">Todas as ações de um oficial em serviço devem ser registradas e justificadas, incluindo o uso de força e paragens de veículos.</span>
+                                <div class="true-false-options">
+                                    <label>
+                                        <input type="radio" name="q3" value="V" required> Verdadeiro
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q3" value="F"> Falso
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="question">A comunicação eficaz e o respeito pelos direitos dos cidadãos são prioridades para todos os membros das autoridades de segurança.</span>
+                                <div class="true-false-options">
+                                    <label>
+                                        <input type="radio" name="q4" value="V" required> Verdadeiro
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q4" value="F"> Falso
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="question">Em perseguições a pé, o oficial tem a liberdade de disparar sobre suspeitos que fujam, independentemente da ameaça que representem.</span>
+                                <div class="true-false-options">
+                                    <label>
+                                        <input type="radio" name="q5" value="V" required> Verdadeiro
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q5" value="F"> Falso
+                                    </label>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <h2>Parte 2: Escolha Múltipla (4 Perguntas)</h2>
+                        <p>Escolha a opção que melhor responde a cada pergunta, de acordo com as normas.</p>
+                        <ol class="questions" start="6">
+                            <li>
+                                <span class="question">Qual das seguintes opções representa uma <strong>violência de protocolo</strong> por parte de um oficial de polícia?</span>
+                                <ul class="options-list">
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q6" value="a" required> a) Deter um suspeito baseado numa denúncia anônima.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q6" value="b"> b) Utilizar linguagem rude ou insultos contra um cidadão durante uma abordagem.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q6" value="c"> c) Efetuar uma perseguição a alta velocidade por uma área movimentada.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q6" value="d"> d) Exigir documentos a um condutor após uma infração de trânsito.
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="question">De acordo com as normas, em que situação um oficial de polícia <strong>NÃO</strong> deve usar o seu bastão extensível?</span>
+                                <ul class="options-list">
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q7" value="a" required> a) Para defender-se de um ataque físico iminente.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q7" value="b"> b) Para controlar um suspeito que está a resistir ativamente à prisão.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q7" value="c"> c) Para intimidar um cidadão que está a filmar uma abordagem policial.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q7" value="d"> d) Para dispersar um grupo de pessoas que está a bloquear a via pública.
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="question">Qual é a principal função de um oficial de polícia no Crystal Roleplay?</span>
+                                <ul class="options-list">
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q8" value="a" required> a) Garantir a ordem pública e fazer cumprir as leis.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q8" value="b"> b) Maximizar o número de prisões e multas.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q8" value="c"> c) Competir com outros departamentos por recursos.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q8" value="d"> d) Proteger apenas os cidadãos mais influentes.
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="question">O que deve um oficial de polícia fazer se um cidadão o filmar durante uma intervenção?</span>
+                                <ul class="options-list">
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q9" value="a" required> a) Exigir que a gravação seja imediatamente apagada.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q9" value="b"> b) Ignorar a filmagem e prosseguir com a intervenção normalmente.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q9" value="c"> c) Apreender o dispositivo de gravação do cidadão.
+                                        </label>
+                                    </li>
+                                    <li class="option">
+                                        <label>
+                                            <input type="radio" name="q9" value="d"> d) Pedir reforços para lidar com a situação.
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <h2>PARTE 3: DESENVOLVIMENTO (1 PERGUNTA)</h2>
+                        <p class="question">Situação:</p>
+                        <p>"Você é um oficial de patrulha e recebe uma denúncia de atividade suspeita numa zona residencial isolada. A denúncia refere que há movimentos incomuns de pessoas em torno de uma casa que, supostamente, está desabitada há meses. Ao chegar ao local, observa uma janela aberta e ouve vozes abafadas vindas do interior. Não há sinais de arrombamento visíveis na porta principal. Como procede nesta situação, desde a sua chegada até à eventual resolução da ocorrência? Mencione as suas ações, comunicações e considerações sobre os direitos dos cidadãos e o uso de força, se aplicável."</p>
+                        
+                        <textarea name="q10" placeholder="Digite sua resposta aqui..." required></textarea>
+
+                        <button type="submit" id="submit-btn">Finalizar Teste</button>
+                    </form>
+                    <div class="footer">
+                        <p>Documento emitido por: Comando de Formação - DPCRP<br>
+                        Versão 3.1 | Validade: 2023-2024<br>
+                        Sistema de Gestão Documental nº CRPD-2312-89</p>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -685,175 +865,6 @@
         </section>
     </main>
     
-    <!-- Proteção por Senha -->
-    <div id="password-protection">
-        <div class="password-container">
-            <img src="https://iili.io/Hg0h0Ux.png" alt="Emblema DPCRP" class="password-logo">
-            <h1>ACESSO RESTRITO</h1>
-            <p>Insira a senha de acesso para continuar:</p>
-            <input type="password" id="password-input" placeholder="Digite a senha">
-            <button id="submit-password">ACESSAR TESTE</button>
-            <div id="error-message">Senha incorreta. Tente novamente.</div>
-        </div>
-    </div>
-
-    <!-- Conteúdo do Teste (oculto inicialmente) -->
-    <div id="test-content">
-        <div class="official-header">
-            <img src="https://iili.io/Hg0h0Ux.png" alt="Emblema LSPD" class="badge">
-            <h1>Departamento de Polícia do Crystal Roleplay</h1>
-            <p>Documento Oficial - Classificação: RESTRITO AO USO INTERNO</p>
-        </div>
-
-        <div class="container">
-            <div class="watermark">DPCRP</div>
-            
-            <h1>TESTE DE ADMISSÃO PARA OFICIAIS</h1>
-            <div class="disclaimer">
-                <strong>AVISO:</strong> Este documento é propriedade exclusiva do DPCRP. Divulgação não autorizada sujeita a medidas disciplinares.
-            </div>
-
-            <form id="test-form">
-                <div class="form-group">
-                    <label for="candidate-name" class="required">Nome do Candidato:</label>
-                    <input type="text" id="candidate-name" name="candidate-name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="candidate-email" class="required">E-mail:</label>
-                    <input type="email" id="candidate-email" name="candidate-email" required>
-                </div>
-
-                <h2>Parte 1: Verdadeiro ou Falso (5 Perguntas)</h2>
-                <p>Leia cada afirmação e indique se é <strong>Verdadeira (V)</strong> ou <strong>Falsa (F)</strong> de acordo com as normas.</p>
-                <ol class="questions">
-                    <li>
-                        <span class="question">Um oficial de polícia pode entrar numa propriedade privada sem mandado se houver suspeita de atividade criminosa iminente e sem autorização do proprietário.</span>
-                        <div class="true-false-options">
-                            <label><input type="radio" name="q1" value="V" required> Verdadeiro</label>
-                            <label><input type="radio" name="q1" value="F"> Falso</label>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="question">É permitido o uso de força letal em resposta a um civil desarmado que esteja a resistir à prisão, mas não representa uma ameaça imediata.</span>
-                        <div class="true-false-options">
-                            <label><input type="radio" name="q2" value="V" required> Verdadeiro</label>
-                            <label><input type="radio" name="q2" value="F"> Falso</label>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="question">Todas as ações de um oficial em serviço devem ser registadas e justificadas, incluindo o uso de força e paragens de veículos.</span>
-                        <div class="true-false-options">
-                            <label><input type="radio" name="q3" value="V" required> Verdadeiro</label>
-                            <label><input type="radio" name="q3" value="F"> Falso</label>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="question">A comunicação eficaz e o respeito pelos direitos dos cidadãos são prioridades para todos os membros das autoridades de segurança.</span>
-                        <div class="true-false-options">
-                            <label><input type="radio" name="q4" value="V" required> Verdadeiro</label>
-                            <label><input type="radio" name="q4" value="F"> Falso</label>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="question">Em perseguições a pé, o oficial tem a liberdade de disparar sobre suspeitos que fujam, independentemente da ameaça que representem.</span>
-                        <div class="true-false-options">
-                            <label><input type="radio" name="q5" value="V" required> Verdadeiro</label>
-                            <label><input type="radio" name="q5" value="F"> Falso</label>
-                        </div>
-                    </li>
-                </ol>
-
-                <h2>Parte 2: Escolha Múltipla (4 Perguntas)</h2>
-                <p>Escolha a opção que melhor responde a cada pergunta, de acordo com as normas.</p>
-                <ol class="questions" start="6">
-                    <li>
-                        <span class="question">Qual das seguintes opções representa uma <strong>violência de protocolo</strong> por parte de um oficial de polícia?</span>
-                        <ul class="options-list">
-                            <li class="option">
-                                <label><input type="radio" name="q6" value="a" required> a) Deter um suspeito baseado numa denúncia anónima.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q6" value="b"> b) Utilizar linguagem rude ou insultos contra um cidadão durante uma abordagem.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q6" value="c"> c) Efetuar uma perseguição a alta velocidade por uma área movimentada.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q6" value="d"> d) Exigir documentos a um condutor após uma infração de trânsito.</label>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="question">De acordo com as normas, em que situação um oficial de polícia <strong>NÃO</strong> deve usar o seu bastão extensível?</span>
-                        <ul class="options-list">
-                            <li class="option">
-                                <label><input type="radio" name="q7" value="a" required> a) Para defender-se de um ataque físico iminente.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q7" value="b"> b) Para controlar um suspeito que está a resistir ativamente à prisão.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q7" value="c"> c) Para intimidar um cidadão que está a filmar uma abordagem policial.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q7" value="d"> d) Para dispersar um grupo de pessoas que está a bloquear a via pública.</label>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="question">Qual é a principal função de um oficial de polícia no Crystal Roleplay?</span>
-                        <ul class="options-list">
-                            <li class="option">
-                                <label><input type="radio" name="q8" value="a" required> a) Garantir a ordem pública e fazer cumprir as leis.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q8" value="b"> b) Maximizar o número de prisões e multas.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q8" value="c"> c) Competir com outros departamentos por recursos.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q8" value="d"> d) Proteger apenas os cidadãos mais influentes.</label>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="question">O que deve um oficial de polícia fazer se um cidadão o filmar durante uma intervenção?</span>
-                        <ul class="options-list">
-                            <li class="option">
-                                <label><input type="radio" name="q9" value="a" required> a) Exigir que a gravação seja imediatamente apagada.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q9" value="b"> b) Ignorar a filmagem e prosseguir com a intervenção normalmente.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q9" value="c"> c) Apreender o dispositivo de gravação do cidadão.</label>
-                            </li>
-                            <li class="option">
-                                <label><input type="radio" name="q9" value="d"> d) Pedir reforços para lidar com a situação.</label>
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
-
-                <h2>PARTE 3: DESENVOLVIMENTO (1 PERGUNTA)</h2>
-                <p class="question">Situação:</p>
-                <p>"Você é um oficial de patrulha e recebe uma denúncia de atividade suspeita numa zona residencial isolada. A denúncia refere que há movimentos incomuns de pessoas em torno de uma casa que, supostamente, está desabitada há meses. Ao chegar ao local, observa uma janela aberta e ouve vozes abafadas vindas do interior. Não há sinais de arrombamento visíveis na porta principal. Como procede nesta situação, desde a sua chegada até à eventual resolução da ocorrência? Mencione as suas ações, comunicações e considerações sobre os direitos dos cidadãos e o uso de força, se aplicável."</p>
-                
-                <textarea name="q10" placeholder="Digite sua resposta aqui..." required></textarea>
-                
-                <button type="submit" id="submit-btn">Finalizar Teste</button>
-            </form>
-
-            <div class="footer">
-                <p>Documento emitido por: Comando de Formação - DPCRP<br>
-                Versão 3.1 | Validade: 2023-2024<br>
-                Sistema de Gestão Documental nº CRPD-2312-89</p>
-            </div>
-        </div>
-    </div>
-    
     <!-- Rodapé -->
     <footer class="portal-footer">
         <img src="https://iili.io/Hg0h0Ux.png" alt="Emblema DPCRP" style="height: 80px; margin-bottom: 1rem; filter: brightness(0) invert(1); opacity: 0.8;">
@@ -867,136 +878,66 @@
         <p style="margin-top: 1.5rem; opacity: 0.8;">© 2023 LSPD - Todos os direitos reservados</p>
     </footer>
 
-    <script>
-        // Navegação suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Atualizar navegação ativa
-                document.querySelectorAll('.nav-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Rolagem suave
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Manter navegação ativa ao rolar
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                if (pageYOffset >= sectionTop) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            document.querySelectorAll('.nav-button').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('href') === `#${currentSection}`) {
-                    btn.classList.add('active');
-                }
-            });
-        });
-        
-        // Validação e envio do formulário de candidatura via EmailJS
-        (function() {
-          emailjs.init({
-            publicKey: "w_N4oJ960VgSnclDW", // Sua Public Key
-            blockHeadless: true,
-          });
-        })();
-        
-        document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const submitBtn = e.target.querySelector('button[type="submit"]');
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Enviando...';
-        
-          emailjs.sendForm('service_6u76dxo', 'template_2joqmrn', e.target)
-            .then((response) => {
-              console.log('SUCCESS!', response.status, response.text);
-              alert('✅ Candidatura enviada com sucesso!');
-              e.target.reset();
-            })
-            .catch((error) => {
-              console.error('FAILED...', error);
-              alert('⚠️ Erro ao enviar. Por favor, tente novamente.');
-            })
-            .finally(() => {
-              submitBtn.disabled = false;
-              submitBtn.textContent = 'ENVIAR CANDIDATURA';
-            });
-        });
-
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            alert('A cópia de conteúdo deste portal não é permitida.');
-        });
-        
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u')) || e.key === 'PrintScreen') {
-                e.preventDefault();
-                alert('Operação não permitida neste portal.');
-            }
-        });
-    </script>
-    <!-- Adicione o SDK do EmailJS -->
+    <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Script para acesso restrito e exibição do teste
-        const CORRECT_PASSWORD = "DPCRP2023";
-        const passwordProtection = document.getElementById("password-protection");
-        const testContent = document.getElementById("test-content");
-        const passwordInput = document.getElementById("password-input");
-        const errorMessage = document.getElementById("error-message");
-        const submitPassword = document.getElementById("submit-password");
-        const accessButton = document.getElementById("access-button");
-        const mainContentElement = document.querySelector("main");
+        (function(){
+            emailjs.init({
+                publicKey: "w_N4oJ960VgSnclDW"
+            });
+        })();
 
-        // Ao clicar no tab Acesso, exibe a proteção por senha
-        accessButton.addEventListener("click", function(e) {
+        // Envio do formulário de candidatura
+        document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            passwordProtection.style.display = "flex";
+            emailjs.sendForm('service_0m7913u', 'template_n70qx4n', this)
+              .then(function(response) {
+                  document.getElementById('successMessage').style.display = 'block';
+                  document.getElementById('recruitmentForm').reset();
+              }, function(error) {
+                  alert('⚠️ Ocorreu um erro no envio da candidatura. Por favor, tente novamente.');
+                  console.error('EmailJS Error:', error);
+              });
         });
 
-        // Verificação da senha
-        submitPassword.addEventListener("click", function() {
+        // Proteção por senha para o teste
+        const CORRECT_PASSWORD = "DPCRP2023";
+        const passwordProtection = document.getElementById('password-protection');
+        const testContent = document.getElementById('test-content');
+        const passwordInput = document.getElementById('password-input');
+        const errorMessage = document.getElementById('error-message');
+        const submitPassword = document.getElementById('submit-password');
+
+        submitPassword.addEventListener('click', function() {
             if (passwordInput.value === CORRECT_PASSWORD) {
-                passwordProtection.style.display = "none";
-                // Esconde conteúdo principal e mostra teste
-                mainContentElement.style.display = "none";
-                testContent.style.display = "block";
+                passwordProtection.style.display = 'none';
+                testContent.style.display = 'block';
             } else {
-                errorMessage.style.display = "block";
-                passwordInput.value = "";
+                errorMessage.style.display = 'block';
+                passwordInput.value = '';
                 passwordInput.focus();
             }
         });
-
-        // Permitir pressionar Enter para submeter a senha
-        passwordInput.addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
+        passwordInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
                 submitPassword.click();
             }
         });
 
-        // Envio do formulário de teste via EmailJS
-        document.getElementById("test-form").addEventListener("submit", function(e) {
+        // Mostrar proteção por senha ao navegar para a seção de teste
+        window.addEventListener('load', function() {
+            if (window.location.hash === '#teste') {
+                passwordProtection.style.display = 'flex';
+            }
+        });
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash === '#teste') {
+                passwordProtection.style.display = 'flex';
+            }
+        });
+
+        // Envio do formulário de teste
+        document.getElementById('test-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
             const responses = {};
@@ -1004,28 +945,28 @@
                 responses[key] = value;
             }
             const emailParams = {
-                candidate_name: responses["candidate-name"],
-                candidate_email: responses["candidate-email"],
-                q1: responses.q1,
-                q2: responses.q2,
-                q3: responses.q3,
-                q4: responses.q4,
-                q5: responses.q5,
-                q6: responses.q6,
-                q7: responses.q7,
-                q8: responses.q8,
-                q9: responses.q9,
-                q10: responses.q10,
+                candidate_name: responses['candidate-name'],
+                candidate_email: responses['candidate-email'],
+                q1: responses['q1'],
+                q2: responses['q2'],
+                q3: responses['q3'],
+                q4: responses['q4'],
+                q5: responses['q5'],
+                q6: responses['q6'],
+                q7: responses['q7'],
+                q8: responses['q8'],
+                q9: responses['q9'],
+                q10: responses['q10'],
                 submission_date: new Date().toLocaleString()
             };
-            emailjs.send("service_6u76dxo", "template_2joqmrn", emailParams)
-                .then(function(response) {
-                    alert("Teste enviado com sucesso! Obrigado por sua participação.");
-                    document.getElementById("test-form").reset();
-                }, function(error) {
-                    alert("Ocorreu um erro ao enviar o teste. Por favor, tente novamente mais tarde.");
-                    console.error("EmailJS Error:", error);
-                });
+            emailjs.send('service_6u76dxo', 'template_2joqmrn', emailParams)
+              .then(function(response) {
+                  alert('✅ Teste enviado com sucesso! Obrigado por sua participação.');
+                  document.getElementById('test-form').reset();
+              }, function(error) {
+                  alert('⚠️ Ocorreu um erro ao enviar o teste. Por favor, tente novamente mais tarde.');
+                  console.error('EmailJS Error:', error);
+              });
         });
     </script>
 </body>
